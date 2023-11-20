@@ -24,11 +24,11 @@ export const ContactList = () => {
         return (
         <PhonebookContactsList>
 
-            {filteredContacts.map(({name, number, id}) => {
+            {filteredContacts.map(({name, phone, id}) => {
 
             return (
                     <PhonebookContactsListItem key={id}>
-                    <PhonebookContactsListItemName>{name}:{number}</PhonebookContactsListItemName>
+                    <PhonebookContactsListItemName>{name}: {phone}</PhonebookContactsListItemName>
                     <DeleteBtn onClick={() => handleDeleteContact(id)}>Delete</DeleteBtn>
                     </PhonebookContactsListItem>
             )
