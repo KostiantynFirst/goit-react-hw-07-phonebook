@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledSpan = styled.span`
   margin-bottom: 20px;
+  font-weight: bold;
 `;
 
 
