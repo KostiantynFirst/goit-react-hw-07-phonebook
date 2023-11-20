@@ -13,7 +13,10 @@ export const ContactList = () => {
 
         const handleDeleteContact = contactId => {
                 dispatch(deleteContact(contactId));
-                toast.info('The contact has been removed from your phonebook successfully!');
+                const deletedContact = contacts.find(contact => contactId === contact.id)
+                if(deletedContact) {
+                        toast.info(`${deletedContact.name} has been removed from your phonebook successfully!`);
+                }
               };
 
         
