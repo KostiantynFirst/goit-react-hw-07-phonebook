@@ -1,12 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
 import { PhonebookContactsList, PhonebookContactsListItem, PhonebookContactsListItemName, DeleteBtn } from "./Contacts.styled";
 import { deleteContact } from "redux/operations";
+import { selectContacts, selectFilterContact } from "redux/selectors";
 import { toast } from "react-toastify";
 
 export const ContactList = () => {
         
-        const contacts = useSelector(state => state.contacts);
-        const filterValue = useSelector(state => state.filter);
+        const contacts = useSelector(selectContacts);
+        const filterValue = useSelector(selectFilterContact);
         const dispatch = useDispatch();
 
         const handleDeleteContact = contactId => {
