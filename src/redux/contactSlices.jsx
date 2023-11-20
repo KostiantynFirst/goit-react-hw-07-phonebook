@@ -16,14 +16,19 @@ const handleDeleteContact = (state, action) => {
     state.items.splice(idx, 1);
 }
 
-// const handlePending = state => {
-//     state.isLoading = true;
-// }
+const handlefulfilled = state => {
+    state.isLoading = false;
+    state.error = null;
+}
 
-// const handleRejected = (state, action) => {
-//     state.isLoading = false;
-//     state.error = action.payload;
-// }
+const handlePending = state => {
+    state.isLoading = true;
+}
+
+const handleRejected = (state, action) => {
+    state.isLoading = false;
+    state.error = action.payload;
+}
 
  const contactSlice = createSlice({
     name: 'contacts',
@@ -63,23 +68,9 @@ const handleDeleteContact = (state, action) => {
         .addCase(fetchContacts.fulfilled, handleFetchContacts)
         .addCase(addContact.fulfilled, handleAddContact)
         .addCase(deleteContact.fulfilled, handleDeleteContact)
-        .addMatcher(
-            isAnyOf(...actions.map(action => action.fulfilled)),
-            state => {
-                state.isLoading = false;
-                state.error = null;
-            }
-        )
-        .addMatcher(isAnyOf(...actions.map(action => action.pending)), state => {
-            state.isLoading = true;
-          })
-          .addMatcher(
-            isAnyOf(...actions.map(action => action.rejected)),
-            (state, action) => {
-              state.isLoading = false;
-              state.error = action.payload;
-            }
-          ),
+        .addMatcher(isAnyOf(...actions.map(action => action.fulfilled)), handlefulfilled)
+        .addMatcher(isAnyOf(...actions.map(action => action.pending)), handlePending)
+        .addMatcher(isAnyOf(...actions.map(action => action.rejected)), handleRejected),
 });
 
 export const contactsReducer = contactSlice.reducer;

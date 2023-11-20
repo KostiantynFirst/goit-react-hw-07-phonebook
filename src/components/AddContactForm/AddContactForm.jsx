@@ -1,7 +1,6 @@
 import { PhonebookForm, PhonebookFormContainer, PhonebookFormLabel, PhonebookFormInput, PhonebookBtn  } from "./AddContactForm.styled";
 import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "redux/operations";
-import { nanoid } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { selectContacts } from "redux/selectors";
@@ -47,7 +46,8 @@ export const AddContactForm = () => {
           return;
         }
 
-        dispatch(addContact({id: nanoid(), name, number}));
+        dispatch(addContact({ name, number }));
+        toast.success(`Contact with the name ${name} has been added to the list!`);
         resetForm();
     
     }
