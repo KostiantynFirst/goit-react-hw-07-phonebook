@@ -7,7 +7,8 @@ import { toast } from "react-toastify";
 export const ContactList = () => {
         
         const contacts = useSelector(selectContacts);
-        const filterValue = useSelector(selectFilterContact);
+        const filterValue = useSelector(selectFilterContact).toLowerCase();
+      
         const dispatch = useDispatch();
 
         const handleDeleteContact = contactId => {
@@ -17,7 +18,7 @@ export const ContactList = () => {
 
         
         const filteredContacts = contacts.filter(contact =>
-                contact.name.toLowerCase().includes(filterValue.toLowerCase())
+                contact.name.toLowerCase().includes(filterValue)
         );
 
         return (
