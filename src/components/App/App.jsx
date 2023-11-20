@@ -35,7 +35,7 @@ export const App = () => {
 
   <ContactList />
 
-<ToastContainer/>
+<ToastContainer autoClose={2000}/>
 
 </PhonebookContacts>
     
