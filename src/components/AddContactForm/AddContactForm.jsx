@@ -4,6 +4,7 @@ import { addContact } from "redux/operations";
 import { nanoid } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import { selectContacts } from "redux/selectors";
 
 export const AddContactForm = () => {
 
@@ -11,7 +12,7 @@ export const AddContactForm = () => {
     const [number, setNumber] = useState("");
    
     const dispatch = useDispatch();
-    const contacts = useSelector(state => state.contacts);
+    const contacts = useSelector(selectContacts);
 
     const handleSubmit = e => {
         e.preventDefault();
