@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const StyledSpan = styled.span`
+  margin-bottom: 20px;
+`;
+
+
 export const PhonebookContainer = styled.div`
   display: flex;
   flex-direction: column;
