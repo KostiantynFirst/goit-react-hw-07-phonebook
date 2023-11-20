@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { PhonebookContactsList, PhonebookContactsListItem, PhonebookContactsListItemName, DeleteBtn } from "./Contacts.styled";
-import { deleteContact } from "redux/contactSlices";
+import { deleteContact } from "redux/operations";
 import { toast } from "react-toastify";
 
 export const ContactList = () => {

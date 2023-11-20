@@ -1,6 +1,6 @@
 import { PhonebookForm, PhonebookFormContainer, PhonebookFormLabel, PhonebookFormInput, PhonebookBtn  } from "./AddContactForm.styled";
 import { useDispatch, useSelector } from "react-redux";
-import { addContact } from "redux/contactSlices";
+import { addContact } from "redux/operations";
 import { nanoid } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import { useState } from "react";
